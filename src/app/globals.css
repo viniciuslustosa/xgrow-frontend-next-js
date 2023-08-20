@@ -11,4 +11,8 @@
     body{
         background-image: url("../../public//images/bg.svg");
     }
+    .dark {
+        background-image: none;
+        background-color: var(--dark-color-background) !important;
+    }
 }
