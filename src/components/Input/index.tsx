@@ -21,7 +21,7 @@ export const Input: React.FunctionComponent<InputProps> = (props) => {
   return (
     <div className={className.join(" ")}>
         <label className={styles.label}>{ props.label }</label>
-        <div>
+        <div className="flex items-center">
           <input className={styles.input} {...otherProps}>
               {props.children}
           </input>
