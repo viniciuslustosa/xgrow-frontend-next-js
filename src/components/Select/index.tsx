@@ -23,14 +23,14 @@ export const Select: React.FunctionComponent<SelectProps> = (props) => {
   return (
     <div className={className.join(" ")}>
         <label className={styles.label}>{ props.label }</label>
+        { icon && (
+          <Icon name={icon} color={"#93BC1E"} size={18}></Icon>
+        )}
         <select className={styles.input} {...otherProps}>
             { options && options.map(option => (
               <option key={option.value} value={option.value}>{option.label}</option>
             ))}
         </select>
-        { icon && (
-          <Icon name={icon} color={"#93BC1E"} size={18}></Icon>
-        )}
     </div>
   );
 };
