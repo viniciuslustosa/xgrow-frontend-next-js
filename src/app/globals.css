@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{
+    --color-background: #F9FAFB;
+    --dark-color-background: #222429;
+}
+
+@layer base{
+    body{
+        background-image: url("../../public//images/bg.svg");
+    }
+}
