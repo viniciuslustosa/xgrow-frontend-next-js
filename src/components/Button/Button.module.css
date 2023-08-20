@@ -1,0 +1,14 @@
+.root {
+  @apply rounded-lg font-normal py-2 px-5 flex items-center gap-2;
+  font-size: 12.8px;
+  transition: all 0.15s linear;
+}
+
+.primary {
+  @apply text-white hover:bg-yellow-600;
+  background-color: #93BC1E;
+}
+
+.secondary {
+  @apply bg-transparent border text-white hover:bg-slate-800 border-solid border-2 border-white;
+}

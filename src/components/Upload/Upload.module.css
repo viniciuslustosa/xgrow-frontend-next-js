@@ -1,0 +1,20 @@
+.root {
+    @apply flex flex-col bg-black-80 border-b;
+}
+
+.primary {
+    @apply text-white ;
+    background-color: transparent;
+
+    .label {
+        @apply text-green-primary text-sm pl-3 pr-2;
+    }
+}
+
+.secondary {
+    @apply bg-transparent text-white bg-black-90 pt-1 pr-2;
+
+    .label {
+        @apply text-white text-xs pl-3;
+    }
+}

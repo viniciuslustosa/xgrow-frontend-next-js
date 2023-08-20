@@ -1,0 +1,27 @@
+.root {
+    @apply flex flex-col bg-black-80 border-b;
+}
+
+.input {
+    @apply text-xs bg-transparent font-normal pl-3 py-2;
+}
+.input::placeholder {
+    @apply font-thin text-xs text-zinc-400;
+}
+
+.primary {
+    @apply text-white ;
+    background-color: transparent;
+
+    .label {
+        @apply text-green-primary text-sm pl-3 pr-2;
+    }
+}
+
+.secondary {
+    @apply bg-transparent text-white bg-black-90 pt-1 pr-2;
+
+    .label {
+        @apply text-white text-xs pl-3;
+    }
+}
