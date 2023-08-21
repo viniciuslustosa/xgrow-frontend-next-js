@@ -38,7 +38,7 @@ export function Card({ course }: Props) {
                         <Button onClick={() => toggleDropdown()} variant="icon">
                             <Icon size={20} name="MoreVert"></Icon>
                         </Button>
-                        <Dropdown isOpen={dropDown}>
+                        <Dropdown setIsOpen={setDropdown} isOpen={dropDown}>
                             <Link
                                 href={`?detail=${course.id}`}
                             >

@@ -8,7 +8,8 @@ type InputProps = {
   variant?: variants;
   label?: string;
   icon?: IconString;
-  isOpen: boolean; 
+  isOpen: boolean;
+  setIsOpen: (value: boolean) => void;
 } & React.InputHTMLAttributes<HTMLInputElement>;
 
 
@@ -19,9 +20,16 @@ export const Dropdown: React.FunctionComponent<InputProps> = (props) => {
   return (
     <div className="relative inline-block text-left mt-5">
       {isOpen && (
-        <div className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-black-100 ring-1 ring-black ring-opacity-5">
-          <div className="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
-            {props.children}
+        <div>
+          <div
+              onClick={() => props.setIsOpen(false)}
+              className="fixed inset-0 bg-opacity-75 transition-opacity"
+              aria-hidden="true"
+          ></div>
+          <div className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-black-100 ring-1 ring-black ring-opacity-5">
+            <div className="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
+              {props.children}
+            </div>
           </div>
         </div>
       )}
