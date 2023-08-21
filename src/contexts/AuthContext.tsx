@@ -50,6 +50,8 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
       
       Cookie.set('@App:user', JSON.stringify({ email }));
       Cookie.set('accessToken', response.data.access_token);
+
+      setUser({ email })
       setSigned(true);
       router.push('/cursos')
     } catch (error) {
