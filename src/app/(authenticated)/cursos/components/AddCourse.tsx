@@ -3,8 +3,10 @@ import { Button } from '@/components/Button';
 import { Input } from '@/components/Input';
 import { Modal } from '@/components/Modal';
 import { Select } from '@/components/Select';
+import { Textarea } from '@/components/Textarea';
 import { Upload } from '@/components/Upload';
 import CourseService from '@/services/CourseService';
+import Link from 'next/link';
 import React from 'react';
 import { useForm, Controller, FieldValues } from 'react-hook-form';
 
@@ -80,11 +82,10 @@ const AddCourse = () => {
                     control={control}
                     defaultValue=""
                     render={({ field }) =>
-                    <Input {...field}
+                    <Textarea {...field}
                         label="Descrição"
                         variant="secondary"
-                        placeholder="Insira uma breve descrição do curso"
-                        type="text" />
+                        placeholder="Insira uma breve descrição do curso"/>
                     }
                 />
             </div>
@@ -158,13 +159,20 @@ const AddCourse = () => {
                 />
             </div>
           </div>
-          <div className="flex gap-4 justify-end">
-            <Button variant="secondary">
-                Cancelar
-            </Button>
-            <Button type="submit">
-                Cadastrar curso
-            </Button>
+          <div className="flex justify-end">
+            <div className="flex flex-row gap-4">
+              <Link
+                href="?"
+                type="button"
+              >
+                <Button variant="secondary">
+                    Cancelar
+                </Button>
+              </Link>
+              <Button type="submit">
+                  Cadastrar curso
+              </Button>
+            </div>
           </div>
         </form>
       </div>

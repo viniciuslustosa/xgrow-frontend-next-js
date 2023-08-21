@@ -8,11 +8,13 @@ import { Input } from '@/components/Input';
 import { Course } from '@/@types/course';
 import { Select } from '@/components/Select';
 import ClientService from '@/services/CourseService';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import AddCourse from './components/AddCourse';
 import Link from 'next/link';
 import Image from 'next/image'
 import DetailCourse from './components/DetailCourse';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+import { Paginator } from '@/components/Paginator';
 
 type options = { value: string, label: string };
 type Props = {
@@ -30,30 +32,42 @@ const categoryOptions = [
     }
 ]
 
-const itemsPage: options[] = [3,5,9,12,15,18,21].map(item => { return {
+const itemsPage: options[] = [10,15,20,30].map(item => { return {
     value: item.toString(),
     label: `${item} por página`,
 }})
 
-const CoursesPage: NextPage<Props>  = ({ searchParams }) => {
-    const [courses, setCourses] = useState<Course[]>([])
-    const showAddModal = searchParams?.add;
-    const showDetailModal = searchParams?.detail;
+const CoursesPage: NextPage<Props>  = () => {
+    const [courses, setCourses] = useState<Course[]>([]);
+    const [loading, setLoading] = useState<boolean>(true);
+    const [selectedPage, setSelectedPage] = useState<number>(1);
+    const [itemsPerPage, setItemsPerPage] = useState<number>(10);
+    const [totalPages, setTotalPages] = useState<number>(1);
+    const searchParams = useSearchParams()!
+    const showAddModal = searchParams.get('add');
+    const showDetailModal = searchParams.get('detail');
 
     const getCourses = async () => {
         try {
-            const { data } = await ClientService.filter()
+            setLoading(true);
+            const { data, meta } = await ClientService.filter({ limit: itemsPerPage, page: selectedPage });
             if(data) {
                 setCourses(data)
             }
+
+            setTotalPages(meta.totalPages)
         } catch (error) {
             console.log(error);
+        } finally {
+            setLoading(false);
         }
     }
 
+    const getSelectedCourse = () => courses.filter(course => course.id === showDetailModal)[0]
+
     useEffect(() => {
         getCourses()
-    }, []);
+    }, [itemsPerPage, selectedPage]);
 
     return (
         <div className={styles.root}>
@@ -102,12 +116,12 @@ const CoursesPage: NextPage<Props>  = ({ searchParams }) => {
                     </div>
                 </div>
                 <div className={styles.cards}>
-                    { courses && courses.map((course) => (
+                    { !loading && courses && courses.map((course) => (
                         <div key={course.id}>
-                            <Card type="video" />
+                            <Card course={course} />
                         </div>
                     ))}
-                    { !courses.length && (
+                    {  !loading && !courses.length && (
                         <div className="flex flex-col items-center gap-8 col-span-3 my-20">
                             <div>
                                 <Image
@@ -129,19 +143,20 @@ const CoursesPage: NextPage<Props>  = ({ searchParams }) => {
                     )}
                 </div>
             </div>
-            <div className="flex">
+            <div className="flex justify-between">
                 <div>
                     <Select
+                        onChange={(e) => setItemsPerPage(parseInt(e.target.value))}
                         variant="menu"
                         options={itemsPage}
                     ></Select>
                 </div>
                 <div>
-                    
+                    <Paginator pages={totalPages} selectedPage={selectedPage || 1} setPage={setSelectedPage} />
                 </div>
             </div>
             {showAddModal && <AddCourse></AddCourse>}
-            {showDetailModal && <DetailCourse></DetailCourse>}
+            {showDetailModal && <DetailCourse course={getSelectedCourse()}></DetailCourse>}
         </div>
     )
 }
