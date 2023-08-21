@@ -21,7 +21,7 @@ const styles = {
 const AccountsPage: NextPage = (props) => {
   const router = useRouter();
 
-
+  const accounts = [];
   return (
     <div className={styles.main}>
       <div className="flex flex-col gap-2">
@@ -33,6 +33,7 @@ const AccountsPage: NextPage = (props) => {
         </span>
       </div>
       <div>
+
       </div>
       <div>
         <Button onClick={() => router.push('/login')}>

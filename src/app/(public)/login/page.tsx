@@ -45,6 +45,7 @@ const LoginPage: NextPage = (props) => {
       <div>
         <Input
           type="email"
+          name="email"
           value={email}
           onChange={handleInputChange}
           label="Email"
