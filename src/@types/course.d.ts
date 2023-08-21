@@ -1,6 +1,4 @@
-enum URL_TYPES {
-    'EXTERNAL_LINK', 'LEARNING_AREA'
-}
+type URL_TYPES = 'EXTERNAL_LINK' | 'LEARNING_AREA'
 
 export interface Course {
     id: string,
@@ -8,8 +6,8 @@ export interface Course {
     thumbnail: string,
     description: string,
     category: string,
-    type: string,
-    accessUrl: URL_TYPES,
+    type: URL_TYPES,
+    accessUrl: string,
     supportUrl: string,
     studentId: string,
     createdAt: string,
