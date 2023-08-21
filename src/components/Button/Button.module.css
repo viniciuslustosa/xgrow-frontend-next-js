@@ -1,5 +1,5 @@
 .root {
-  @apply rounded-lg font-normal py-2 px-5 flex items-center gap-2;
+  @apply rounded-lg font-normal py-2 px-5 flex items-center gap-2 w-full justify-center;
   font-size: 12.8px;
   transition: all 0.15s linear;
 }
@@ -11,6 +11,14 @@
 
 .secondary {
   @apply bg-transparent border text-white hover:bg-slate-800 border-solid border-2 border-white;
+}
+
+.icon {
+  @apply  text-white hover:bg-slate-800 p-0;
+}
+
+.dropdown {
+  @apply  text-white hover:bg-slate-800 py-1 justify-start;
 }
 
 .error {

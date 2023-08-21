@@ -3,7 +3,7 @@ import styles from "./Button.module.css";
 import Icon from "@/icons";
 import { IconString } from "@/icons/types";
 
-type variants = "primary" | "secondary" | "error";
+type variants = "primary" | "secondary" | "error" | "icon" | "dropdown";
 type ButtonProps = {
   variant?: variants;
   icon?: IconString;
@@ -14,6 +14,8 @@ const VariantMap = {
   primary: styles.primary,
   secondary: styles.secondary,
   error: styles.error,
+  icon: styles.icon,
+  dropdown: styles.dropdown,
 };
 
 export const Button: React.FunctionComponent<ButtonProps> = (props) => {
