@@ -1,13 +1,14 @@
 .root {
-    @apply flex flex-row items-center justify-start bg-black-80 border-b w-full;
+    @apply flex flex-col justify-start bg-black-80 border-b w-full;
 }
 
 .input {
-    @apply text-xs bg-transparent font-normal pl-0 py-2 w-full focus:outline-none focus:border-indigo-500;
+    @apply text-xs bg-transparent font-normal pl-0 py-2 w-full focus:outline-none pl-1;
 }
 .input::placeholder {
     @apply font-thin text-xs text-zinc-400;
 }
+
 
 .primary {
     @apply text-white ;
@@ -19,7 +20,15 @@
 }
 
 .secondary {
-    @apply bg-transparent text-white bg-black-90 pr-2 border border-gray-500 rounded-lg;
+    @apply bg-transparent text-white bg-black-90 pt-1 pr-2;
+
+    .label {
+        @apply text-white text-xs pl-3;
+    }
+}
+
+.menu {
+    @apply bg-transparent text-white bg-black-90 pr-2 border border-gray-500 rounded-lg pl-2;
 
     .label {
         @apply text-white text-xs pl-3;

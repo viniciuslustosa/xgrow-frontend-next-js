@@ -2,6 +2,7 @@ import { Button } from '../Button';
 import { MoreVert } from '@mui/icons-material';
 import styles from './Card.module.css';
 import Image from 'next/image'
+import Icon from '@/icons';
 
 interface Props {
     type: 'video' | 'text'
@@ -26,7 +27,9 @@ export function Card({ type }: Props) {
                         </p>
                     </div>
                     <div className="bg-black-100 rounded p-1">
-                        <MoreVert />
+                        <Button variant="secondary">
+                            <Icon name="MoreVert"></Icon>
+                        </Button>
                     </div>
                 </div>
                 <div className="flex flex-row items-center md:divide-x md:divide-gray-600 text-gray-secondary-70">

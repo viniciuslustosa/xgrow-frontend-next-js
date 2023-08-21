@@ -1,11 +1,11 @@
 .root {
-    @apply rounded-lg bg-black-80 p-4 grid grid-cols-7 grid-rows-1 grid-flow-col gap-x-4;
+    @apply rounded-lg bg-black-80 p-4 grid grid-cols-12 grid-rows-1 grid-flow-col gap-x-4;
 }
 
 .contentImage {
-    @apply rounded-lg bg-black col-span-2 flex justify-center items-center;
+    @apply rounded-lg col-span-4 sm:col-span-3 md:col-span-5 2xl:col-span-3 flex justify-start items-center;
 }
 
 .contentInfo {
-    @apply col-span-5 row-span-2 text-white flex flex-col justify-between h-full;
+    @apply md:col-span-7 col-span-8 sm:col-span-9 2xl:col-span-9 text-white flex flex-col justify-between h-full gap-4;
 }

@@ -5,10 +5,14 @@
 }
 
 .primary {
-  @apply text-white hover:bg-yellow-600;
+  @apply text-white hover:bg-green-secondary;
   background-color: #93BC1E;
 }
 
 .secondary {
   @apply bg-transparent border text-white hover:bg-slate-800 border-solid border-2 border-white;
+}
+
+.error {
+  @apply bg-red-400 text-white hover:bg-red-500;
 }
