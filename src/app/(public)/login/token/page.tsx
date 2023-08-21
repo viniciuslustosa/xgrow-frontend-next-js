@@ -28,7 +28,6 @@ const TokenPage: NextPage = (props) => {
   const handleLogin = () => {
     try {
       if(user?.email && code) {
-        console.log('teste');
         Login(user.email, code)
       }
     } catch (error) {
@@ -43,8 +42,8 @@ const TokenPage: NextPage = (props) => {
           Insira o token de acesso
         </span>
         <span className="text-sm max-w-sm font-light text-gray-secondary-60">
-          Para confirmar a sua identidade, digite o código que enviamos para o seu e-mail
-          <strong>{ user?.email }</strong>
+          Para confirmar a sua identidade, digite o código que enviamos para o seu e-mail 
+          <strong> { user?.email }</strong>
         </span>
       </div>
       <div>

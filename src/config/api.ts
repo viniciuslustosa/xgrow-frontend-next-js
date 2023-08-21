@@ -36,6 +36,6 @@ export default api;
 
 export const defaults = {
     headers: {
-      Authorization: `Bearer ${Cookie.get('@App:accessToken')}`,
+      Authorization: `Bearer ${Cookie.get('accessToken')}`,
     },
 };

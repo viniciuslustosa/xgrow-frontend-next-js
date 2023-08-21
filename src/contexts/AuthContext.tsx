@@ -29,10 +29,11 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
 
   useEffect(() => {
     const storagedUser = Cookie.get('@App:user');
-    const storagedToken = Cookie.get('@App:accessToken');
+    const storagedToken = Cookie.get('@accessToken');
 
     if (storagedToken && storagedUser) {
       setUser(JSON.parse(storagedUser));
+      setSigned(true);
       defaults.headers.Authorization = `Bearer ${storagedToken}`;
     }
   }, []);
@@ -48,7 +49,8 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
       defaults.headers.Authorization = `Bearer ${response.data.accessToken}`;
       
       Cookie.set('@App:user', JSON.stringify({ email }));
-      Cookie.set('@App:accessToken', response.data.access_token);
+      Cookie.set('accessToken', response.data.access_token);
+      setSigned(true);
       router.push('/cursos')
     } catch (error) {
       router.push('/login')
@@ -59,8 +61,8 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   async function SendToken(email: string) {
     try {
       await api.post('auth/login', { email });
-      setUser({ email }); 
       router.push('/login/token')
+      setUser({ email }); 
     } catch (error) {
       console.log(error)
     }
@@ -68,7 +70,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
 
   function Logout() {
     Cookie.remove('@App:user');
-    Cookie.remove('@App:accessToken');
+    Cookie.remove('accessToken');
     setUser(null);
   }
 

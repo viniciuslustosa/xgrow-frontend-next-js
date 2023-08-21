@@ -1,3 +1,5 @@
+"use client";
+
 import { Course } from "@/@types/course";
 import api, { defaults } from "../config/api";
 

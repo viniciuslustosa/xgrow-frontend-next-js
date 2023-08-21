@@ -6,6 +6,12 @@ import FormatListBulletedIcon from '@mui/icons-material/FormatListBulleted';
 import WindowIcon from '@mui/icons-material/Window';
 import SearchIcon from '@mui/icons-material/Search';
 import CloseIcon from '@mui/icons-material/Close';
+import FileUploadIcon from '@mui/icons-material/FileUpload';
+import TuneIcon from '@mui/icons-material/Tune';
+import MoreVertIcon from '@mui/icons-material/MoreVert';
+import HelpIcon from '@mui/icons-material/Help';
+import DeleteIcon from '@mui/icons-material/Delete';
+import VisibilityIcon from '@mui/icons-material/Visibility';
 
 const adjIconProps = (props: IconProps) => {
   const newProps: IconProps = {}
@@ -46,6 +52,30 @@ const Close = (props: IconProps) => (
   <CloseIcon sx={{ fontSize: props.size, color: props.color }}/>
 )
 
+const FileUpload = (props: IconProps) => (
+  <FileUploadIcon sx={{ fontSize: props.size, color: props.color }}/>
+)
+
+const Tune = (props: IconProps) => (
+  <TuneIcon sx={{ fontSize: props.size, color: props.color }}/>
+)
+
+const MoreVert = (props: IconProps) => (
+  <MoreVertIcon sx={{ fontSize: props.size, color: props.color }}/>
+)
+
+const Help = (props: IconProps) => (
+  <HelpIcon sx={{ fontSize: props.size, color: props.color }}/>
+)
+
+const Delete = (props: IconProps) => (
+  <DeleteIcon sx={{ fontSize: props.size, color: props.color }}/>
+)
+
+const Visibility = (props: IconProps) => (
+  <VisibilityIcon sx={{ fontSize: props.size, color: props.color }}/>
+)
+
 const UserLogged = (props: IconProps) => (
   <svg width={props.size} height={props.size} viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
   <circle cx="20.9995" cy="21" r="18.9" fill="#C1C5CF"/>
@@ -55,14 +85,22 @@ const UserLogged = (props: IconProps) => (
   </svg>
 )
 
+
+
 export const IconList = {
   FormatListBulleted,
   PlayCircle,
+  FileUpload,
   UserLogged,
+  Visibility,
   OpenInNew,
+  MoreVert,
   Window,
   Search,
+  Delete,
   Close,
+  Tune,
+  Help,
   Add,
 }
 

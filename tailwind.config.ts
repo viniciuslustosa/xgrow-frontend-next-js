@@ -18,7 +18,6 @@ const config: Config = {
       },
       backgroundColor: {
         'black-2': "#1E2126",
-        'black-3': '#222429',
         'black-100': '#222429',
         'black-90': '#252932',
         'black-80': '#2A2E39',
@@ -28,7 +27,14 @@ const config: Config = {
         'green-primary': "#93BC1E",
         'green-secondary': "#ADDF45",
         'gray-secondary-70': "#C1C5CF",
-        'gray-secondary-60': "#E7E7E7"
+        'gray-secondary-60': "#E7E7E7",
+        'black-50': "#636C84",
+      },
+      maxHeight: {
+        '70': '70vh',
+      },
+      fontSize: {
+        '10': '10px',
       }
     },
   },

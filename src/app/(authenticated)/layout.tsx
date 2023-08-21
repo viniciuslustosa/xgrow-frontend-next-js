@@ -21,9 +21,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-BR">
-      <body suppressHydrationWarning={true} className={` dark text-white`}>
+      <body suppressHydrationWarning={true} className={`dark bg-black text-white min-h-screen`}>
         <Navbar></Navbar>
-        <main className="py-5 p-4">
+        <main className="py-5 p-4 h-full">
           {children}
         </main>
       </body>
